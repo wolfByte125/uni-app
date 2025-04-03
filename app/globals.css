@@ -9,13 +9,63 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #d3d3d3;
+    --foreground: #171717;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .page-title {
+    @apply text-3xl text-center py-5;
+  }
+
+  .bottom-element {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .neo-morph-dark {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    background-color: rgba(201, 0, 22, 0.7);
+    /* background-color: rgba(17, 24, 38, 0.7); */
+    background-clip: padding-box;
+    backdrop-filter: blur(10px);
+  }
+
+  .neo-morph-dark-modal {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    background-color: rgba(17, 24, 38, 0.9);
+    background-clip: padding-box;
+    backdrop-filter: blur(10px);
+  }
+
+  .neo-morph-dark-faded {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    background-color: rgba(17, 24, 38, 0.05);
+    background-clip: padding-box;
+    backdrop-filter: blur(10px);
+  }
+
+  .neo-morph-light {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    background-color: rgba(83, 84, 85, 0.7);
+    background-clip: padding-box;
+    backdrop-filter: blur(10px);
+  }
 }

@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { mainFont } from "@/app/ui/fonts";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Sidebar from "./ui/Sidebar";
+import SmallScreenMenu from "./ui/SmallScreenMenu";
+import SiteHeader from "./ui/SiteHeader";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +18,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${mainFont.className} antialiased`}>
+        <div className="min-h-screen w-full border border-black">
+          <div className="md:hidden">
+            <SiteHeader />
+          </div>
+          <SmallScreenMenu />
+
+          <div className="flex min-h-screen">
+            <div className="hidden lg:block md:w-1/5 bg-white-bg py-5">
+              <Sidebar />
+            </div>
+            <div className="w-full">
+              <div className="md:w-full md:flex md:flex-wrap p-5 mb-20">
+                <Toaster position="bottom-right" />
+                {children}
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
